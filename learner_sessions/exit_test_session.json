@@ -1,0 +1,35 @@
+{
+  "user_id": "exit_test",
+  "saved_at": "2026-05-03T07:05:21.583101",
+  "session": {
+    "user_id": "exit_test",
+    "user_name": "Tester",
+    "start_time": "2026-05-03T07:05:21.583101",
+    "stage": "SessionStage.GATHERING_NAME",
+    "level": null,
+    "level_assessment": null,
+    "current_lesson": null,
+    "lesson_performance": null,
+    "profile": null,
+    "interaction_count": 1,
+    "history": [],
+    "followup_options": [],
+    "selected_followup": null,
+    "learning_path": [],
+    "completed_topics": [],
+    "current_skill_focus": null,
+    "skill_progression_step": 0,
+    "last_evaluation": null,
+    "language": "Python",
+    "python_version": "Python 3"
+  },
+  "profile": null,
+  "tokens": {
+    "total_tokens": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "session_duration": "2026-05-03T07:05:21.583101",
+    "entry_count": 0,
+    "entries": []
+  }
+}

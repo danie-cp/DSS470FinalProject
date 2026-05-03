@@ -1,0 +1,475 @@
+{
+  "user_id": "146",
+  "saved_at": "2026-05-03T07:51:42.654265",
+  "session": {
+    "user_id": "146",
+    "user_name": "dnaie",
+    "start_time": "2026-05-03T07:46:35.358823",
+    "stage": "SessionStage.CONTINUOUS",
+    "level": "Novice",
+    "level_assessment": {
+      "level": "ProficiencyLevel.NOVICE",
+      "criteria": "LevelCriteria(level=<ProficiencyLevel.NOVICE: 'Novice'>, syntax_error_range=(5, inf), logic_error_range=(4, inf), redundancy_error_range=(3, inf), task_complexity_range=(1, 2), description='Novice level represents developers who are just beginning their programming journey. Their code contains frequent fundamental errors and demonstrates minimal understanding of programming concepts.', characteristics=['Frequent syntax errors (mismatched brackets, incorrect indentation, missing punctuation)', 'Misunderstanding of basic language constructs (loops, conditionals, functions)', \"No understanding of DRY (Don't Repeat Yourself) principle\", 'Massive code duplication and copy-paste programming'])",
+      "syntax_errors": 0,
+      "logic_errors": 2,
+      "redundancy_errors": 0,
+      "task_complexity": 1,
+      "feedback": "This is a very simple function that is supposed to add two numbers. However, there are two logic errors here. The function takes in parameters 'a' and 'b', but tries to return 'x+y', which are undefined in this context. Therefore, the function will not work as expected.",
+      "recommendations": [
+        "Replace 'x+y' with 'a+b'."
+      ],
+      "prompt_tokens": 305,
+      "completion_tokens": 109,
+      "total_tokens": 414
+    },
+    "current_lesson": {
+      "student_level": "Novice",
+      "error_type": "general",
+      "teaching_style": "Directive",
+      "components": {
+        "objective": "Identify and fix common syntax errors in Python functions, specifically correcting the variable usage in the function definition `def sum(a,b): return x+y`.",
+        "explanation": "### Problem Statement\nYou have a function called `sum`, but there\u2019s an error in the code: `return x+y` should be using the parameters `a` and `b` instead of `x` and `y`. \n\n#### Steps to Fix the Error\n\n1. **Check the Variable Names**  \n   Look at the return line in your function. Replace `x` and `y` with `a` and `b`. The corrected line should be: `return a + b`.\n\n2. **Test the Function**  \n   After making the change, run your function with some numbers to see if it works correctly. For example, use `sum(3, 5)` and check if it returns `8`.\n\n3. **Use Meaningful Names**  \n   For better clarity, consider renaming your function to something more descriptive, like `add_numbers`, to better reflect its purpose.\n\n### Simple Tip\nAlways use the function's parameters in your return statement to avoid confusion and errors.",
+        "common_mistakes": "- Mistake: Forgetting to use proper indentation \u2192 Fix: Ensure consistent use of spaces or tabs for indentation, as Python relies on indentation levels to define code blocks.\n\n- Mistake: Misusing or misunderstanding variable names (e.g., using reserved keywords or starting with numbers) \u2192 Fix: Use descriptive variable names that follow Python naming conventions (start with a letter or underscore, avoid reserved keywords).\n\n- Mistake: Using the wrong type of brackets for data structures (e.g., using parentheses instead of square brackets for lists) \u2192 Fix: Use square brackets `[]` for lists, curly braces `{}` for dictionaries and sets, and parentheses `()` for tuples or function calls."
+      },
+      "topic": "\"Understanding variable scope\""
+    },
+    "lesson_performance": "def sum(x,y): return x+y",
+    "profile": {
+      "learner_id": "146",
+      "learner_name": "dnaie",
+      "current_level": "Novice",
+      "start_date": "2026-05-03T07:48:45.769078",
+      "total_sessions": 2,
+      "total_errors_addressed": 2,
+      "average_comprehension": 40.0,
+      "error_reduction_rate": 0.0,
+      "session_history": [
+        {
+          "session_number": 1,
+          "timestamp": "2026-05-03T07:49:03.035857",
+          "error_type": "Unknown",
+          "performance": 0.0,
+          "level_before": "Novice",
+          "level_after": "Novice",
+          "evaluation": {
+            "comprehension": 0,
+            "application": 0,
+            "error_identification": 0,
+            "code_quality": 0,
+            "explanation_quality": 0,
+            "strengths": [],
+            "areas_for_growth": [],
+            "overall_assessment": "",
+            "ready_for_next_level": false
+          },
+          "progression_note": "Needs support (0.0%). Additional Novice-level practice recommended."
+        },
+        {
+          "session_number": 2,
+          "timestamp": "2026-05-03T07:50:27.990564",
+          "error_type": "general",
+          "performance": 80.0,
+          "level_before": "Novice",
+          "level_after": "Novice",
+          "evaluation": {
+            "comprehension": 100,
+            "application": 100,
+            "error_identification": 100,
+            "code_quality": 100,
+            "explanation_quality": 0,
+            "strengths": [
+              "The student demonstrated a complete understanding of the concept by correctly redefining the function with appropriate variable names. They effectively applied the learning objective by fixing the original syntax error. Their ability to identify and correct the error indicates a strong grasp of the material."
+            ],
+            "areas_for_growth": [
+              "The student did not provide an explanation for their changes",
+              "which would be beneficial for reinforcing their understanding and for future learning."
+            ],
+            "overall_assessment": "The student performed exceptionally well, demonstrating a solid understanding and application of the lesson's objectives. They corrected the error effectively and produced high-quality code.",
+            "ready_for_next_level": true
+          },
+          "progression_note": "Good performance (80.0%) at current level. Continue strengthening skills before progression."
+        }
+      ],
+      "strengths": [
+        "The student demonstrated a complete understanding of the concept by correctly redefining the function with appropriate variable names. They effectively applied the learning objective by fixing the original syntax error. Their ability to identify and correct the error indicates a strong grasp of the material."
+      ],
+      "growth_areas": [
+        "The student did not provide an explanation for their changes",
+        "which would be beneficial for reinforcing their understanding and for future learning."
+      ],
+      "recommendations": [
+        "- **Practice Explaining Code Changes**: After making any modifications to code, take a few minutes to write a short explanation of what changes were made and why. This can be done in a comments section within the code or as a separate document. This practice will reinforce understanding and help solidify concepts.",
+        "- **Engage in Peer Code Reviews**: Collaborate with a peer or join a study group where you can review each other's code. Take turns explaining the logic behind your code changes and decisions. This will help improve your ability to articulate your thought process and deepen your understanding of Python concepts.",
+        "- **Create a Coding Journal**: Start a coding journal to document your learning journey. After completing exercises or projects, write down what you learned, challenges faced, and how you overcame them. Include explanations of any changes made in your code. This will serve as a valuable resource for reflection and future reference.",
+        "- **Explore Advanced Topics**: Begin exploring advanced topics such as object-oriented programming or data structures in Python. Since you have demonstrated strong comprehension and application skills, diving into these areas will challenge you further and enhance your programming capabilities. Start with simple projects that incorporate these concepts to solidify your understanding."
+      ],
+      "last_updated": "2026-05-03T07:50:27.990564",
+      "next_recommended_topics": [
+        "Here are 3-5 specific Python topics for the novice student to learn next, considering their current strengths and areas for growth:",
+        "- **Function Documentation and Docstrings**",
+        "Learn how to write effective documentation for functions using docstrings. This will help the student articulate their thought process and explain the purpose, parameters, and return values of their functions, reinforcing their understanding of the code they write.",
+        "- **Basic Data Structures (Lists, Tuples, Dictionaries)**",
+        "Explore fundamental data structures in Python. Understanding how to use lists, tuples, and dictionaries will enable the student to store and manipulate collections of data effectively, which is essential for practical programming tasks.",
+        "- **Control Flow (if Statements, Loops)**",
+        "Dive into control flow statements, including `if`, `elif`, `else`, and loops like `for` and `while`. This topic will help the student build more complex logic in their programs, allowing them to handle various scenarios and iterate over data structures.",
+        "- **Error Handling with Try-Except Blocks**",
+        "Learn how to handle exceptions and errors gracefully using try-except blocks. This will not only improve the robustness of their code but also encourage them to think critically about potential issues that may arise during execution.",
+        "- **Basic File I/O (Reading and Writing Files)**",
+        "Understand how to read from and write to files in Python. This practical skill is essential for many applications, such as data processing and storage, and will help the student apply their programming knowledge to real-world tasks.",
+        "These topics will build on the student's existing strengths while addressing their areas for growth, progressively increasing in complexity and relevance to practical Python development."
+      ],
+      "token_usage_summary": {
+        "total_tokens": 414,
+        "prompt_tokens": 305,
+        "completion_tokens": 109,
+        "token_entries": [
+          {
+            "timestamp": "2026-05-03T07:48:45.769078",
+            "agent_name": "LevelPlacementAgent",
+            "activity_description": "Python code proficiency assessment",
+            "prompt_tokens": 305,
+            "completion_tokens": 109,
+            "total_tokens": 414
+          },
+          {
+            "timestamp": "2026-05-03T07:48:45.769078",
+            "agent_name": "LevelPlacementAgent",
+            "activity_description": "Python code proficiency assessment",
+            "prompt_tokens": 305,
+            "completion_tokens": 109,
+            "total_tokens": 414
+          },
+          {
+            "timestamp": "2026-05-03T07:49:03.035857",
+            "agent_name": "UpdateProfileAgent",
+            "activity_description": "Initial Python learner profile creation",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          {
+            "timestamp": "2026-05-03T07:49:30.005619",
+            "agent_name": "ErrorTrainingAgent",
+            "activity_description": "Python error training lesson generation",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          {
+            "timestamp": "2026-05-03T07:49:48.541642",
+            "agent_name": "OrchestratorAgent",
+            "activity_description": "Python code correctness evaluation",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          {
+            "timestamp": "2026-05-03T07:49:49.781655",
+            "agent_name": "OrchestratorAgent",
+            "activity_description": "Python code correctness evaluation",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          },
+          {
+            "timestamp": "2026-05-03T07:50:12.291917",
+            "agent_name": "OrchestratorAgent",
+            "activity_description": "Python code correctness evaluation",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0
+          }
+        ],
+        "session_count": 2
+      }
+    },
+    "interaction_count": 7,
+    "history": [],
+    "followup_options": [],
+    "selected_followup": null,
+    "learning_path": [],
+    "completed_topics": [],
+    "current_skill_focus": null,
+    "skill_progression_step": 0,
+    "last_evaluation": null,
+    "language": "Python",
+    "python_version": "Python 3",
+    "formatted_profile": "\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551                    PYTHON LEARNER PROFILE                            \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n\n\n\u001b[1m\ud83d\udc64 LEARNER INFORMATION:\u001b[0m\nName: dnaie\nID: 146\nStarted: 2026-05-03T07:48:45.769078\nSessions Completed: 2\n\n\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n\n\u001b[1m\ud83d\udcca PROFICIENCY LEVEL:\u001b[0m Novice\n\n\nPerformance Metrics:\nAverage Comprehension: 40.0%\nError Reduction Rate: 0.0%\nTotal Errors Addressed: 2\n\n\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\ufffd\ufffd\ufffd\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n\u001b[1m\u2705 STRENGTHS:\u001b[0m\n  \u2022 The student demonstrated a complete understanding of the concept by correctly redefining the function with appropriate variable names. They effectively applied the learning objective by fixing the original syntax error. Their ability to identify and correct the error indicates a strong grasp of the material.\n\n\n\u001b[1m\u26a0\ufe0f  GROWTH AREAS:\u001b[0m\n  \u2022 The student did not provide an explanation for their changes\n\n  \u2022 which would be beneficial for reinforcing their understanding and for future learning.\n\n\n\u001b[1m\ud83d\udca1 PERSONALIZED RECOMMENDATIONS:\u001b[0m\n  \u2022 - **Practice Explaining Code Changes**: After making any modifications to code, take a few minutes to write a short explanation of what changes were made and why. This can be done in a comments section within the code or as a separate document. This practice will reinforce understanding and help solidify concepts.\n\n  \u2022 - **Engage in Peer Code Reviews**: Collaborate with a peer or join a study group where you can review each other's code. Take turns explaining the logic behind your code changes and decisions. This will help improve your ability to articulate your thought process and deepen your understanding of Python concepts.\n\n  \u2022 - **Create a Coding Journal**: Start a coding journal to document your learning journey. After completing exercises or projects, write down what you learned, challenges faced, and how you overcame them. Include explanations of any changes made in your code. This will serve as a valuable resource for reflection and future reference.\n\n  \u2022 - **Explore Advanced Topics**: Begin exploring advanced topics such as object-oriented programming or data structures in Python. Since you have demonstrated strong comprehension and application skills, diving into these areas will challenge you further and enhance your programming capabilities. Start with simple projects that incorporate these concepts to solidify your understanding.\n\n\n\u001b[1m\ud83d\ude80 RECOMMENDED NEXT TOPICS:\u001b[0m\n  \u2022 Here are 3-5 specific Python topics for the novice student to learn next, considering their current strengths and areas for growth:\n\n  \u2022 - **Function Documentation and Docstrings**\n\n  \u2022 Learn how to write effective documentation for functions using docstrings. This will help the student articulate their thought process and explain the purpose, parameters, and return values of their functions, reinforcing their understanding of the code they write.\n\n  \u2022 - **Basic Data Structures (Lists, Tuples, Dictionaries)**\n\n  \u2022 Explore fundamental data structures in Python. Understanding how to use lists, tuples, and dictionaries will enable the student to store and manipulate collections of data effectively, which is essential for practical programming tasks.\n\n  Tip: Choose one of these recommended next topics as the basis for the next component of your lesson.\n\n\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\ufffd\ufffd\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n\n\u001b[1m\ud83d\udcc8 LEARNING PROGRESSION:\u001b[0m\nTotal Sessions: 2\nLast Updated: 2026-05-03T07:50:27.990564\n\n  Recent Session:\n    Error Type: general\n    Performance: 80.0%\n    Level Progression: Novice \u2192 Novice\n    Note: Good performance (80.0%) at current level. Continue strengthening skills before progression.\n\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d\n",
+    "topic": "\"Understanding variable scope\"",
+    "followup_task": {
+      "topic": "\"Understanding variable scope\"",
+      "error_type": "general",
+      "level": "Novice",
+      "full_task": "COMPREHENSION_QUESTIONS:\n1. What is the difference between a local variable and a global variable in Python?\n2. How does variable scope affect the ability to access a variable inside a function?\n\nCODING_EXERCISE:\nWrite a Python program that demonstrates variable scope by creating a global variable named `message`. Inside a function called `print_message`, create a local variable with the same name `message`, assign it a different string value, and print both the local and global `message`. Finally, call the function and print the global `message` outside the function to show the difference.\n\nDIFFICULTY: Easy",
+      "comprehension_questions": [
+        "1. What is the difference between a local variable and a global variable in Python?",
+        "2. How does variable scope affect the ability to access a variable inside a function?"
+      ],
+      "coding_exercise": "Write a Python program that demonstrates variable scope by creating a global variable named `message`. Inside a function called `print_message`, create a local variable with the same name `message`, assign it a different string value, and print both the local and global `message`. Finally, call the function and print the global `message` outside the function to show the difference.\n"
+    },
+    "followup_attempts": 0
+  },
+  "profile": {
+    "learner_id": "146",
+    "learner_name": "dnaie",
+    "current_level": "Novice",
+    "start_date": "2026-05-03T07:48:45.769078",
+    "total_sessions": 2,
+    "total_errors_addressed": 2,
+    "average_comprehension": 40.0,
+    "error_reduction_rate": 0.0,
+    "session_history": [
+      {
+        "session_number": 1,
+        "timestamp": "2026-05-03T07:49:03.035857",
+        "error_type": "Unknown",
+        "performance": 0.0,
+        "level_before": "Novice",
+        "level_after": "Novice",
+        "evaluation": {
+          "comprehension": 0,
+          "application": 0,
+          "error_identification": 0,
+          "code_quality": 0,
+          "explanation_quality": 0,
+          "strengths": [],
+          "areas_for_growth": [],
+          "overall_assessment": "",
+          "ready_for_next_level": false
+        },
+        "progression_note": "Needs support (0.0%). Additional Novice-level practice recommended."
+      },
+      {
+        "session_number": 2,
+        "timestamp": "2026-05-03T07:50:27.990564",
+        "error_type": "general",
+        "performance": 80.0,
+        "level_before": "Novice",
+        "level_after": "Novice",
+        "evaluation": {
+          "comprehension": 100,
+          "application": 100,
+          "error_identification": 100,
+          "code_quality": 100,
+          "explanation_quality": 0,
+          "strengths": [
+            "The student demonstrated a complete understanding of the concept by correctly redefining the function with appropriate variable names. They effectively applied the learning objective by fixing the original syntax error. Their ability to identify and correct the error indicates a strong grasp of the material."
+          ],
+          "areas_for_growth": [
+            "The student did not provide an explanation for their changes",
+            "which would be beneficial for reinforcing their understanding and for future learning."
+          ],
+          "overall_assessment": "The student performed exceptionally well, demonstrating a solid understanding and application of the lesson's objectives. They corrected the error effectively and produced high-quality code.",
+          "ready_for_next_level": true
+        },
+        "progression_note": "Good performance (80.0%) at current level. Continue strengthening skills before progression."
+      }
+    ],
+    "strengths": [
+      "The student demonstrated a complete understanding of the concept by correctly redefining the function with appropriate variable names. They effectively applied the learning objective by fixing the original syntax error. Their ability to identify and correct the error indicates a strong grasp of the material."
+    ],
+    "growth_areas": [
+      "The student did not provide an explanation for their changes",
+      "which would be beneficial for reinforcing their understanding and for future learning."
+    ],
+    "recommendations": [
+      "- **Practice Explaining Code Changes**: After making any modifications to code, take a few minutes to write a short explanation of what changes were made and why. This can be done in a comments section within the code or as a separate document. This practice will reinforce understanding and help solidify concepts.",
+      "- **Engage in Peer Code Reviews**: Collaborate with a peer or join a study group where you can review each other's code. Take turns explaining the logic behind your code changes and decisions. This will help improve your ability to articulate your thought process and deepen your understanding of Python concepts.",
+      "- **Create a Coding Journal**: Start a coding journal to document your learning journey. After completing exercises or projects, write down what you learned, challenges faced, and how you overcame them. Include explanations of any changes made in your code. This will serve as a valuable resource for reflection and future reference.",
+      "- **Explore Advanced Topics**: Begin exploring advanced topics such as object-oriented programming or data structures in Python. Since you have demonstrated strong comprehension and application skills, diving into these areas will challenge you further and enhance your programming capabilities. Start with simple projects that incorporate these concepts to solidify your understanding."
+    ],
+    "last_updated": "2026-05-03T07:50:27.990564",
+    "next_recommended_topics": [
+      "Here are 3-5 specific Python topics for the novice student to learn next, considering their current strengths and areas for growth:",
+      "- **Function Documentation and Docstrings**",
+      "Learn how to write effective documentation for functions using docstrings. This will help the student articulate their thought process and explain the purpose, parameters, and return values of their functions, reinforcing their understanding of the code they write.",
+      "- **Basic Data Structures (Lists, Tuples, Dictionaries)**",
+      "Explore fundamental data structures in Python. Understanding how to use lists, tuples, and dictionaries will enable the student to store and manipulate collections of data effectively, which is essential for practical programming tasks.",
+      "- **Control Flow (if Statements, Loops)**",
+      "Dive into control flow statements, including `if`, `elif`, `else`, and loops like `for` and `while`. This topic will help the student build more complex logic in their programs, allowing them to handle various scenarios and iterate over data structures.",
+      "- **Error Handling with Try-Except Blocks**",
+      "Learn how to handle exceptions and errors gracefully using try-except blocks. This will not only improve the robustness of their code but also encourage them to think critically about potential issues that may arise during execution.",
+      "- **Basic File I/O (Reading and Writing Files)**",
+      "Understand how to read from and write to files in Python. This practical skill is essential for many applications, such as data processing and storage, and will help the student apply their programming knowledge to real-world tasks.",
+      "These topics will build on the student's existing strengths while addressing their areas for growth, progressively increasing in complexity and relevance to practical Python development."
+    ],
+    "token_usage_summary": {
+      "total_tokens": 414,
+      "prompt_tokens": 305,
+      "completion_tokens": 109,
+      "token_entries": [
+        {
+          "timestamp": "2026-05-03T07:48:45.769078",
+          "agent_name": "LevelPlacementAgent",
+          "activity_description": "Python code proficiency assessment",
+          "prompt_tokens": 305,
+          "completion_tokens": 109,
+          "total_tokens": 414
+        },
+        {
+          "timestamp": "2026-05-03T07:48:45.769078",
+          "agent_name": "LevelPlacementAgent",
+          "activity_description": "Python code proficiency assessment",
+          "prompt_tokens": 305,
+          "completion_tokens": 109,
+          "total_tokens": 414
+        },
+        {
+          "timestamp": "2026-05-03T07:49:03.035857",
+          "agent_name": "UpdateProfileAgent",
+          "activity_description": "Initial Python learner profile creation",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        {
+          "timestamp": "2026-05-03T07:49:30.005619",
+          "agent_name": "ErrorTrainingAgent",
+          "activity_description": "Python error training lesson generation",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        {
+          "timestamp": "2026-05-03T07:49:48.541642",
+          "agent_name": "OrchestratorAgent",
+          "activity_description": "Python code correctness evaluation",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        {
+          "timestamp": "2026-05-03T07:49:49.781655",
+          "agent_name": "OrchestratorAgent",
+          "activity_description": "Python code correctness evaluation",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        {
+          "timestamp": "2026-05-03T07:50:12.291917",
+          "agent_name": "OrchestratorAgent",
+          "activity_description": "Python code correctness evaluation",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        }
+      ],
+      "session_count": 2
+    }
+  },
+  "tokens": {
+    "learner_id": "146",
+    "learner_name": "dnaie",
+    "session_count": 0,
+    "total_tokens_used": 414,
+    "total_prompt_tokens": 305,
+    "total_completion_tokens": 109,
+    "average_tokens_per_session": 0,
+    "tokens_by_agent": {
+      "LevelPlacementAgent": {
+        "prompt_tokens": 610,
+        "completion_tokens": 218,
+        "total_tokens": 828,
+        "call_count": 2
+      },
+      "UpdateProfileAgent": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "call_count": 1
+      },
+      "ErrorTrainingAgent": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "call_count": 1
+      },
+      "OrchestratorAgent": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "call_count": 3
+      }
+    },
+    "report_generated": "2026-05-03T07:51:42.654265",
+    "total_tokens": 414,
+    "prompt_tokens": 305,
+    "completion_tokens": 109,
+    "entry_count": 9,
+    "entries": [
+      {
+        "timestamp": "2026-05-03T07:48:45.769078",
+        "agent": "LevelPlacementAgent",
+        "prompt_tokens": 305,
+        "completion_tokens": 109,
+        "total_tokens": 414,
+        "activity": "Python code proficiency assessment"
+      },
+      {
+        "timestamp": "2026-05-03T07:49:03.035857",
+        "agent": "UpdateProfileAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Initial Python learner profile creation"
+      },
+      {
+        "timestamp": "2026-05-03T07:49:30.005619",
+        "agent": "ErrorTrainingAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python error training lesson generation"
+      },
+      {
+        "timestamp": "2026-05-03T07:49:48.541642",
+        "agent": "OrchestratorAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python code correctness evaluation"
+      },
+      {
+        "timestamp": "2026-05-03T07:49:49.781655",
+        "agent": "OrchestratorAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python code correctness evaluation"
+      },
+      {
+        "timestamp": "2026-05-03T07:50:12.291917",
+        "agent": "OrchestratorAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python code correctness evaluation"
+      },
+      {
+        "timestamp": "2026-05-03T07:50:27.991563",
+        "agent": "UpdateProfileAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python learner profile update after lesson"
+      },
+      {
+        "timestamp": "2026-05-03T07:50:30.272076",
+        "agent": "OrchestratorAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Python follow-up task generation"
+      },
+      {
+        "timestamp": "2026-05-03T07:50:45.133424",
+        "agent": "OrchestratorAgent",
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "activity": "Gathering more information about Python learning"
+      }
+    ]
+  }
+}
