@@ -1,6 +1,6 @@
 # Python Learning Chatbox 
 
-A multi-agent, persistenr, adaptive Python tutoring system that assesses learner proficiency, provides targeted error correction lessons, and tracks learning progress through intelligent multi-agent orchestration.
+A multi-agent, persistent, adaptive Python tutoring system that assesses learner proficiency, provides targeted error correction lessons, and tracks learning progress through intelligent multi-agent orchestration.
 
 ## Overview
 
@@ -383,23 +383,6 @@ Edit the `SessionStage` and `RoutingDecision` enums in `orchestrator_agent.py` t
 - Database backend for session storage
 - Web UI for better accessibility
 - Multi-language support beyond Python
-- Collaborative learning features
-- Gamification and achievement badges
-- Video explanation generation
-- Real-time code execution sandbox
 
 ---
 
-## License
-
-This project is part of DSS470 Final Project.
-
-## Support
-
-For issues or questions:
-1. Check the Troubleshooting section above
-2. Verify all dependencies are installed correctly
-3. Review agent logs in `activity_log`
-4. Check session files in `learner_sessions/`
-
----
