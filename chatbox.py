@@ -125,7 +125,7 @@ def get_user_level(user_id: str) -> str:
 
 
 # Ensure the project root is on sys.path so imports work when executing this script
-ROOT_DIR = Path(__file__).resolve().parents[2]
+ROOT_DIR = Path(__file__).resolve().parent
 if str(ROOT_DIR) not in sys.path:
   sys.path.insert(0, str(ROOT_DIR))
 
@@ -585,10 +585,13 @@ def main():
        user_input = get_user_input()
 
 
+#change here!!!!
 
+       display_user_message(user_input)
+       response = orch.execute(user_id, user_input)
+       display_response(response)
 
-       if user_input.lower() in ["exit", "quit", "bye"]:
-           # Save user memory before exiting
+       if response.get("next_action") == "SESSION_COMPLETE":
            update_user_memory(
                user_id=user_id,
                last_topic=current_topic,

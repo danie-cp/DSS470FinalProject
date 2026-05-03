@@ -379,7 +379,8 @@ class OrchestratorAgent(ABC):
       # Get or create session
       session = self.get_session(user_id)
       if not session:
-          session = self.start_new_session(user_id)["session_info"]
+          self.start_new_session(user_id)
+          session = self.sessions[user_id]
           return {
               "message": self.WELCOME_MESSAGE,
               "next_action": "WAITING_FOR_CODE_INPUT"
@@ -387,6 +388,12 @@ class OrchestratorAgent(ABC):
    
       # Increment interaction count
       session["interaction_count"] += 1
+
+      # Global exit handling: save and complete the session whenever the user wants to leave
+      if self._user_wants_to_exit(user_input):
+          routing_decision = RoutingDecision.COMPLETE_SESSION
+          agent_response = self._route_to_agent(routing_decision, session, user_input)
+          return self._format_and_publish_output(session, routing_decision, agent_response)
 
       if session["stage"] == SessionStage.GATHERING_NAME:
           routing_decision = RoutingDecision.GATHER_INFO
@@ -635,12 +642,30 @@ class OrchestratorAgent(ABC):
           self.token_ledgers[user_id] = TokenLedger()
       
       ledger = self.token_ledgers[user_id]
+      prompt_tokens = 0
+      completion_tokens = 0
       
-      # Extract token usage if available in response
-      prompt_tokens = response.get("prompt_tokens", 0)
-      completion_tokens = response.get("completion_tokens", 0)
+      if isinstance(response, dict):
+          prompt_tokens = response.get("prompt_tokens", 0)
+          completion_tokens = response.get("completion_tokens", 0)
+          usage = response.get("usage", {}) or {}
+          if not prompt_tokens:
+              prompt_tokens = usage.get("prompt_tokens", 0)
+          if not completion_tokens:
+              completion_tokens = usage.get("completion_tokens", 0)
+      else:
+          usage = getattr(response, "usage", None)
+          if usage:
+              prompt_tokens = getattr(usage, "prompt_tokens", 0) or usage.get("prompt_tokens", 0)
+              completion_tokens = getattr(usage, "completion_tokens", 0) or usage.get("completion_tokens", 0)
+          llm_output = getattr(response, "llm_output", None)
+          if isinstance(llm_output, dict):
+              token_usage = llm_output.get("token_usage", {}) or {}
+              if not prompt_tokens:
+                  prompt_tokens = token_usage.get("prompt_tokens", 0)
+              if not completion_tokens:
+                  completion_tokens = token_usage.get("completion_tokens", 0)
       
-      # Record in ledger
       ledger.record_token_usage(
           agent_name=agent_name,
           prompt_tokens=prompt_tokens,
@@ -676,7 +701,8 @@ class OrchestratorAgent(ABC):
               lesson_data={"initial_assessment": True, "level": assessment["level"].value},
               user_response="",
               current_level=assessment["level"].value,
-              learner_name=session.get("user_name", session["user_id"])
+              learner_name=session.get("user_name", session["user_id"]),
+              token_ledger_data=self.get_token_usage(session["user_id"]) or {}
           )
           
           # Record token usage from profile creation
@@ -771,7 +797,8 @@ class OrchestratorAgent(ABC):
           lesson_data=lesson_data,
           user_response=user_input,
           current_level=current_level,
-          learner_name=session.get("user_name", user_id)
+          learner_name=session.get("user_name", user_id),
+          token_ledger_data=self.get_token_usage(user_id) or {}
       )
       
       # Record token usage
@@ -1202,30 +1229,48 @@ Format with clear sections and Python code blocks.
       formatted_profile = session.get("formatted_profile", "")
       user_name = session.get("user_name", "Friend")
       user_id = session["user_id"]
-      # Save session to disk
-      self.persistence.save_session(
-      user_id=session["user_id"],
-      session_data=session,
-      profile_data=session.get("profile", {}),
-      token_data=self.token_ledgers[session["user_id"]].get_summary()
-)
-
-      
-      # Get token report
       token_summary = ""
       token_data = None
       if self.update_profile_agent:
           token_report_display = self.update_profile_agent.format_token_report_for_display(
-              user_id, 
+              user_id,
               include_agent_breakdown=True
           )
           token_summary = token_report_display
-          token_data = self.update_profile_agent.compile_token_report(user_id)
+          token_data = self.update_profile_agent.compile_token_report(user_id) or {
+              "total_tokens": 0,
+              "prompt_tokens": 0,
+              "completion_tokens": 0,
+              "entry_count": 0,
+              "entries": []
+          }
+          if token_data.get("total_tokens", 0) == 0:
+              ledger_summary = self.get_token_usage(user_id) or {}
+              if ledger_summary.get("total_tokens", 0) > 0:
+                  token_data["total_tokens"] = ledger_summary.get("total_tokens", 0)
+                  token_data["prompt_tokens"] = ledger_summary.get("prompt_tokens", 0)
+                  token_data["completion_tokens"] = ledger_summary.get("completion_tokens", 0)
+                  token_data["entry_count"] = ledger_summary.get("entry_count", 0)
+                  token_data["entries"] = ledger_summary.get("entries", [])
+                  token_data["session_count"] = ledger_summary.get("session_count", 0)
+                  token_data["average_tokens_per_session"] = (
+                      token_data["total_tokens"] / token_data["session_count"]
+                      if token_data["session_count"] > 0
+                      else 0
+                  )
       else:
           token_ledger = self.token_ledgers.get(user_id)
           if token_ledger:
               token_summary = token_ledger.format_for_display()
               token_data = token_ledger.get_summary()
+          else:
+              token_data = {
+                  "total_tokens": 0,
+                  "prompt_tokens": 0,
+                  "completion_tokens": 0,
+                  "entry_count": 0,
+                  "entries": []
+              }
    
       completion_message = f"""
 ╔══════════════════════════════════════════════════════════════════════╗

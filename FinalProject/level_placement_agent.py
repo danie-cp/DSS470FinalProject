@@ -447,6 +447,25 @@ class LevelPlacementAgent(ABC):
           level, criteria = LevelPlacementCriteria.assess_level(
               syntax_errors, logic_errors, redundancy_errors, task_complexity
           )
+          usage = getattr(response, "usage", None)
+          if usage is None and isinstance(response, dict):
+              usage = response.get("usage", {})
+          prompt_tokens = 0
+          completion_tokens = 0
+          if usage:
+              prompt_tokens = getattr(usage, "prompt_tokens", None)
+              if prompt_tokens is None and isinstance(usage, dict):
+                  prompt_tokens = usage.get("prompt_tokens", 0)
+              completion_tokens = getattr(usage, "completion_tokens", None)
+              if completion_tokens is None and isinstance(usage, dict):
+                  completion_tokens = usage.get("completion_tokens", 0)
+              prompt_tokens = prompt_tokens or 0
+              completion_tokens = completion_tokens or 0
+          token_data = {
+              "prompt_tokens": prompt_tokens,
+              "completion_tokens": completion_tokens,
+              "total_tokens": prompt_tokens + completion_tokens
+          }
        
           return {
               "level": level,
@@ -456,7 +475,8 @@ class LevelPlacementAgent(ABC):
               "redundancy_errors": redundancy_errors,
               "task_complexity": task_complexity,
               "feedback": feedback,
-              "recommendations": recommendations
+              "recommendations": recommendations,
+              **token_data
           }
        
       except Exception as e:

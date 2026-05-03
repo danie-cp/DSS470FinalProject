@@ -9,8 +9,10 @@ from typing import Dict, List
 class SessionPersistence:
    """Handles saving and loading sessions with token data."""
   
-   def __init__(self, sessions_dir: str = "./learner_sessions"):
+   def __init__(self, sessions_dir: str = None):
        """Initialize persistence manager."""
+       if sessions_dir is None:
+           sessions_dir = Path(__file__).resolve().parent / "learner_sessions"
        self.sessions_dir = Path(sessions_dir)
        self.sessions_dir.mkdir(parents=True, exist_ok=True)
   
