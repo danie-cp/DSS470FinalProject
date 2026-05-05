@@ -306,47 +306,6 @@ Token data is saved in session files for billing and analysis purposes.
 
 ---
 
-## Troubleshooting
-
-### Sessions Not Saving
-
-**Issue:** Learner sessions folder returns empty or sessions aren't found
-
-**Solution:** Verify the `learner_sessions` folder path is absolute:
-- Check that `Session Persistence` is initialized with the correct absolute path
-- Verify write permissions to the `learner_sessions` directory
-- Ensure the directory exists: `mkdir learner_sessions`
-
-### OpenAI API Key Error
-
-**Issue:** `KeyError: OPENAI_API_KEY environment variable not set`
-
-**Solution:**
-1. Verify `.env` file exists in project root
-2. Add line: `OPENAI_API_KEY=your_key_here`
-3. Restart Python environment after creating `.env`
-
-### Module Import Errors
-
-**Issue:** `ModuleNotFoundError` for FinalProject modules
-
-**Solution:**
-1. Ensure you're running from project root: `cd DSS470FinalProject`
-2. Verify virtual environment is activated
-3. Reinstall dependencies: `pip install -r requirements.txt`
-
-### Empty Session Folder
-
-**Issue:** `learner_sessions` folder is empty after running sessions
-
-**Solution:**
-1. Run through a complete session flow (assessment → training → completion)
-2. Verify code completes without errors
-3. Check file permissions: `chmod 755 learner_sessions/`
-4. Look for session files: `ls -la learner_sessions/`
-
----
-
 ## Development Notes
 
 ### Adding New Agents
