@@ -292,10 +292,9 @@ The system tracks API token usage across all interactions. A session token repor
 
 ```
 📊 SESSION TOKEN USAGE REPORT:
-├─ Total Tokens Used: 15,234
-├─ Prompt Tokens: 8,950
-├─ Completion Tokens: 6,284
-└─ Total API Calls: 12
+├─ total_tokens
+├─ prompt_tokens
+├─ completion_tokens
 ```
 
 In the furture, we would likke to implement so the token data is saved in session files for billing and analysis purposes.
