@@ -1772,6 +1772,9 @@ If CORRECT is 'yes', provide positive reinforcement about their Python solution.
           # Python tools
           "jupyter", "notebook", "vscode", "pycharm", "idle", "debugger", "pdb",
           "pytest", "unittest", "pip install", "requirements",
+          # Common responses to questions
+          "yes", "no", "maybe", "sure", "okay", "ok", "correct", "wrong", "true", "false",
+          "good", "bad", "great", "fine", "well", "alright", "thanks", "thank you",
       ]
      
       # Topics that are OUT of scope (non-Python programming)
@@ -1797,6 +1800,11 @@ If CORRECT is 'yes', provide positive reinforcement about their Python solution.
      
       # Check for Python code patterns
       if self._is_code_input(user_input):
+          return True
+     
+      # Check for short responses (likely answers to questions)
+      word_count = len(user_input.split())
+      if word_count <= 5 and not any(keyword in lower_input for keyword in out_of_scope_keywords):
           return True
      
       # Check for Python help request patterns
@@ -2058,5 +2066,9 @@ Try asking me something like:
    
       # Process input through the Python learning system
       return self.process_user_input(user_id, user_input)
+
+
+
+
 
 

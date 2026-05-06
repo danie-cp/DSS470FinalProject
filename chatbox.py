@@ -584,32 +584,11 @@ def main():
    while True:
        user_input = get_user_input()
 
-
 #change here!!!!
 
        display_user_message(user_input)
        response = orch.execute(user_id, user_input)
        display_response(response)
-
-       if response.get("next_action") == "SESSION_COMPLETE":
-           update_user_memory(
-               user_id=user_id,
-               last_topic=current_topic,
-               performance=current_performance,
-               level=current_level
-           )
-           display_goodbye()
-           break
-
-
-
-
-       display_user_message(user_input)
-       response = orch.execute(user_id, user_input)
-       display_response(response)
-
-
-
 
        # Extract topic and performance from session if available
        if hasattr(orch, 'sessions') and user_id in orch.sessions:
@@ -638,9 +617,6 @@ def main():
            if session.get("level"):
                current_level = session["level"]
 
-
-
-
            # Periodically save progress (every 5 interactions)
            if session.get("interaction_count", 0) % 5 == 0:
                update_user_memory(
@@ -649,6 +625,16 @@ def main():
                    performance=current_performance,
                    level=current_level
                )
+
+       if response.get("next_action") == "SESSION_COMPLETE":
+           update_user_memory(
+               user_id=user_id,
+               last_topic=current_topic,
+               performance=current_performance,
+               level=current_level
+           )
+           display_goodbye()
+           break
 
 
 
@@ -667,28 +653,3 @@ def main():
 
 if __name__ == "__main__":
   main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
