@@ -25,7 +25,7 @@ The Python Learning Assistant is an interactive educational platform built on La
 - 📈 **Progress Tracking** - Maintains learner profiles with performance metrics
 - 🤖 **Multi-Agent Architecture** - Specialized agents for different learning stages
 - 📝 **Token Tracking** - Monitors API usage across all agent interactions
-
+  
 ---
 
 ## Project Structure
@@ -98,11 +98,9 @@ Gathers research-based teaching materials:
 
 ### **6. Session Persistence** (`session_persistence.py`)
 Manages persistent storage:
-- Saves complete sessions with metadata
+- Saves complete sessions
 - Stores user profiles and token data
-- Loads previous sessions for continuity
-- Retrieves all saved sessions
-- Supports session deletion
+- Loads previous user level 
 
 Saves sessions to the `learner_sessions/` directory with format: `{user_id}_session.json`
 
