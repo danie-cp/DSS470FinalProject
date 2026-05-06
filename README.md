@@ -298,17 +298,7 @@ The system tracks API token usage across all interactions. A session token repor
 └─ Total API Calls: 12
 ```
 
-Token data is saved in session files for billing and analysis purposes.
-
-
----
-
-## Performance Considerations
-
-- **Token Usage**: Monitor API costs with token tracking
-- **Session Size**: Large sessions consume more storage; archive old sessions periodically
-- **API Rate Limits**: Respect OpenAI rate limits; consider adding retry logic for production
-- **Resource Retrieval**: Cached results can improve performance for repeated queries
+In the furture, we would likke to implement so the token data is saved in session files for billing and analysis purposes.
 
 ---
 
