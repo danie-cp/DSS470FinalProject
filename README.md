@@ -300,27 +300,6 @@ The system tracks API token usage across all interactions. A session token repor
 
 Token data is saved in session files for billing and analysis purposes.
 
----
-
-## Development Notes
-
-### Adding New Agents
-
-1. Create a new agent module in `FinalProject/`
-2. Implement the agent class with required methods
-3. Add routing logic to `orchestrator_agent.py`
-4. Test with existing session flow
-
-### Extending Session Persistence
-
-Modify `session_persistence.py` to add:
-- Database backend support
-- Cloud storage integration
-- Advanced filtering and queries
-
-### Customizing Proficiency Levels
-
-Edit the `SessionStage` and `RoutingDecision` enums in `orchestrator_agent.py` to add new learning stages or assessment criteria.
 
 ---
 
@@ -335,9 +314,9 @@ Edit the `SessionStage` and `RoutingDecision` enums in `orchestrator_agent.py` t
 
 ## Future Enhancements
 
-- Database backend for session storage
+- Sophisticated Database
 - Web UI for better accessibility
-- Multi-language support beyond Python
+- Token Behavior influence 
 
 ---
 
