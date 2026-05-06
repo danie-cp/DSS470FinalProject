@@ -282,11 +282,7 @@ The system uses the following APIs and libraries:
 | **OpenAI GPT-4o-mini** | Language model for all agents |
 | **LangChain** | Agent orchestration and prompting |
 | **LangChain OpenAI** | OpenAI integration |
-| **Rich** | Terminal formatting and UI |
-| **Beautiful Soup** | HTML parsing for resources |
 | **FAISS** | Vector similarity search |
-| **Pandas** | Data processing |
-| **DuckDuckGo Search** | Resource retrieval |
 
 ---
 
