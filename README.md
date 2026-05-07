@@ -307,3 +307,28 @@ In the furture, we would likke to implement so the token data is saved in sessio
 
 ---
 
+##Prompt iteration Improvement
+-allow multi line in terminal to allow users to write code.
+solution: implement a loop
+-modified level assessment criteria. Level assessment was based on errors which placed simple codes as master
+solution: include a task complexity code
+-out-of-scope conversations were allowed
+solution: define out-of-scope words to reject
+-continue session: sessions would end after a lesson has been completed
+solution:modified orchestrator to allow persistent lessons
+-include a long term memory to store user profle
+solution: implemented a  json memory folder
+-chatbox level assmesement output too much information. 
+Solution: shorten the output to reduce token usage
+
+---
+##Evaulations and Guardrails
+Prompting the objective of the chatbox was not enough to keep the chatbox in scope. We also included out-of-scope keywords the orchestrator agent should reject and output an error message to the user
+
+```python
+or keyword in out_of_scope_keywords:
+          if keyword in lower_input:
+              if keyword == "java " and "javascript" in lower_input:
+                  continue
+              return False
+```
