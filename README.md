@@ -307,7 +307,7 @@ In the furture, we would likke to implement so the token data is saved in sessio
 
 ---
 
-##Prompt iteration Improvement
+## Prompt iteration Improvement
 -allow multi line in terminal to allow users to write code.
 solution: implement a loop
 -modified level assessment criteria. Level assessment was based on errors which placed simple codes as master
@@ -322,7 +322,7 @@ solution: implemented a  json memory folder
 Solution: shorten the output to reduce token usage
 
 ---
-##Evaulations and Guardrails
+## Evaulations and Guardrails
 Prompting the objective of the chatbox was not enough to keep the chatbox in scope. We also included out-of-scope keywords the orchestrator agent should reject and output an error message to the user
 
 ```python
