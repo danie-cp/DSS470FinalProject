@@ -180,6 +180,17 @@ This launches an interactive terminal-based interface where you can:
 - "What's the difference between a list and tuple?"
 - Receive level-appropriate Python concept explanations
 
+### Chatbox in action
+**Option 1: Average of 3 Numbers
+<img width="2772" height="1536" alt="image" src="https://github.com/user-attachments/assets/5c956d6a-ee82-4270-98fa-b1284337f88c" />
+
+**Option 2: Defining tuples and Lists
+:<img width="2770" height="1480" alt="image" src="https://github.com/user-attachments/assets/82e82bf8-3766-4566-9ca1-3c386b912218" />
+
+**Option 3:implement a function to multiply 7*7
+<img width="1036" height="570" alt="image" src="https://github.com/user-attachments/assets/8a7ec73f-9e36-4525-91c9-12385465c7ba" />
+
+
 ### Multi-Line Input Mode
 
 For longer code samples or detailed explanations:
