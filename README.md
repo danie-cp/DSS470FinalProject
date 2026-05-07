@@ -310,10 +310,10 @@ In the furture, we would likke to implement so the token data is saved in sessio
 ## Prompt iteration Improvement
 - allow multi line in terminal to allow users to write code.
 
-solution: implement a loop
-- modified level assessment criteria. Level assessment was based on errors which placed simple codes as master
+solution: implement a loop to allow multiple lines of input 
+- modified level assessment criteria. Level assessment was originally based on errors which assessed simple codes as master
 
-solution: include a task complexity code
+solution: include a task complexity criteria in the level placement orchestrator 
 - out-of-scope conversations were allowed
 
 solution: define out-of-scope words to reject
@@ -322,7 +322,7 @@ solution: define out-of-scope words to reject
 solution:modified orchestrator to allow persistent lessons
 - include a long term memory to store user profle
 
-solution: implemented a  json memory folder
+solution: implemented a json memory folder
 - chatbox level assesment output too much information. 
 
 solution: shorten the output to reduce token usage
