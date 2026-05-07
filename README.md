@@ -308,17 +308,17 @@ In the furture, we would likke to implement so the token data is saved in sessio
 ---
 
 ## Prompt iteration Improvement
--allow multi line in terminal to allow users to write code.
+- allow multi line in terminal to allow users to write code.
 solution: implement a loop
--modified level assessment criteria. Level assessment was based on errors which placed simple codes as master
+- modified level assessment criteria. Level assessment was based on errors which placed simple codes as master
 solution: include a task complexity code
--out-of-scope conversations were allowed
+- out-of-scope conversations were allowed
 solution: define out-of-scope words to reject
--continue session: sessions would end after a lesson has been completed
+- continue session: sessions would end after a lesson has been completed
 solution:modified orchestrator to allow persistent lessons
--include a long term memory to store user profle
+- include a long term memory to store user profle
 solution: implemented a  json memory folder
--chatbox level assmesement output too much information. 
+- chatbox level assmesement output too much information. 
 Solution: shorten the output to reduce token usage
 
 ---
