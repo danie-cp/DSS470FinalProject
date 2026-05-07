@@ -350,3 +350,105 @@ or keyword in out_of_scope_keywords:
                   continue
               return False
 ```
+---
+## Agents in Actions
+** Orchestrator routes to specialized agent and updates current session stage
+
+```python
+
+Second interaction: check if code or help request
+      elif stage == SessionStage.NEW:
+          if self._is_ready_for_lesson(user_input):
+              # User typed 'ready' - treat as code input without re-analyzing
+              return RoutingDecision.LEVEL_PLACEMENT
+          elif self._is_code_input(user_input):
+              return RoutingDecision.LEVEL_PLACEMENT
+          elif self._is_python_explanation_request(user_input):
+              return RoutingDecision.PYTHON_EXPLANATION
+          elif self._is_help_request(user_input):
+              # Skip assessment for help requests, go directly to training
+              session["stage"] = SessionStage.ASSESSED
+              session["level"] = "Beginner"  # Assume beginner for help requests
+              return RoutingDecision.ERROR_TRAINING
+          else:
+              # Not clear, gather more info
+              return RoutingDecision.GATHER_INFO
+ 
+      # Level determined: route to error training
+      elif stage == SessionStage.ASSESSED:
+          # Check if user is asking for a concept explanation instead
+          if self._is_python_explanation_request(user_input):
+              return RoutingDecision.PYTHON_EXPLANATION
+          return RoutingDecision.ERROR_TRAINING
+ ```
+
+ **Error training agent generates lessons based on teaching strategies from the retrieval agent and level placement from the level palcement agent
+ progress
+
+```python
+# Get teaching approach for this level
+      teaching_approach = self.LEVEL_TEACHING_STYLES.get(
+          student_level,
+          self.LEVEL_TEACHING_STYLES["Intermediate"]
+      )
+
+      # Retrieve teaching strategies from resource agent
+      resource_guidance = None
+      if self.resource_agent:
+          resource_guidance = self._get_teaching_strategies(
+              error_type, student_level, topic
+          )
+   
+      # Generate lesson components based on proficiency level
+      lesson = {
+          "student_level": student_level,
+          "error_type": error_type,
+          "teaching_style": teaching_approach["style"].value,
+          "components": {}
+      }
+
+      lesson["topic"] = self._generate_topic(
+          error_type=error_type,
+          error_description=error_description,
+          user_input=error_description or error_code
+              )
+   ```
+**Resource Retrieval Agent retrives resources from FAISS vector storage
+```python
+ef _build_vector_store(self, documents: List[Document]) -> None:
+       """
+       Build FAISS vector store from documents.
+      
+       Args:
+           documents (List[Document]): Documents to index
+       """
+       self.vector_store = FAISS.from_documents(documents, self.embeddings)
+  
+   def retrieve_resources(
+       self,
+       query: str,
+       k: int = None,
+       category_filter: str = None
+   ) -> List[Dict]:
+       """
+       Retrieve relevant resources based on a semantic query.
+      
+       Args:
+           query (str): The search query
+           k (int): Number of results to retrieve (default: RETRIEVAL_K)
+           category_filter (str): Optional category to filter results
+          
+       Returns:
+           List[Dict]: List of retrieved resources with metadata
+       """
+       if not self.vector_store:
+           raise RuntimeError("Vector store not initialized")
+      
+       k = k or self.RETRIEVAL_K
+      
+       # Retrieve documents
+       retriever = self.vector_store.as_retriever(search_kwargs={"k": k})
+       retrieved_docs = retriever.invoke(query)
+    
+```
+---
