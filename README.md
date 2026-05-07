@@ -180,6 +180,7 @@ This launches an interactive terminal-based interface where you can:
 - "What's the difference between a list and tuple?"
 - Receive level-appropriate Python concept explanations
 
+---
 ### Chatbox in action
 **Option 1: Average of 3 Numbers
 <img width="2772" height="1536" alt="image" src="https://github.com/user-attachments/assets/5c956d6a-ee82-4270-98fa-b1284337f88c" />
