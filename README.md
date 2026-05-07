@@ -352,7 +352,7 @@ or keyword in out_of_scope_keywords:
 ```
 ---
 ## Agents in Actions
-** Orchestrator routes to specialized agent and updates current session stage
+**Orchestrator routes to specialized agent and updates current session stage**
 
 ```python
 
@@ -383,7 +383,7 @@ Second interaction: check if code or help request
  ```
 
  **Error training agent generates lessons based on teaching strategies from the retrieval agent and level placement from the level palcement agent
- progress
+ progress**
 
 ```python
 # Get teaching approach for this level
@@ -413,7 +413,7 @@ Second interaction: check if code or help request
           user_input=error_description or error_code
               )
    ```
-**Resource Retrieval Agent retrives resources from FAISS vector storage
+**Resource Retrieval Agent retrieves resources from FAISS vector storage**
 ```python
 ef _build_vector_store(self, documents: List[Document]) -> None:
        """
